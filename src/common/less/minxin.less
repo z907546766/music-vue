@@ -1,0 +1,23 @@
+.font-size(@fontSize) {
+  font-size: @fontSize;
+
+  [data-dpr='2'] & {
+    font-size: @fontSize*2;
+  }
+
+  [data-dpr='3'] & {
+    font-size: @fontSize*3;
+  }
+}
+
+.bg-background(@imgName) {
+  background: url("../image/@{imgName}@2x.png");
+
+  [data-dpr='2'] & {
+    background: url("../image/@{imgName}@2x.png");
+  }
+
+  [data-dpr='3'] & {
+    background: url("../image/@{imgName}@3x.png");
+  }
+}

@@ -1,6 +1,7 @@
-<template lang="html">
-  <div id='rank'>
 
+<template lang="html">
+  <div id='rank'> 
+    
   </div>
 </template>
 

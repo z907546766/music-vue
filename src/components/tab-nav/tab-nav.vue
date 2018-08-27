@@ -17,32 +17,31 @@
 
 <script>
 export default {
-  name: 'tabNav'
-
-}
+  name: "tabNav"
+};
 </script>
 
 <style lang="less" scoped>
-@import url('../../common/less/minxin.less');
+@import url("../../common/less/minxin.less");
 #tabNav {
-    display: flex;
-    height: 1.17rem;
-    line-height: 1.17rem;
-    div {
-        flex: 1 1 auto;
-        text-align: center;
-        .tab-link {
-            color: hsla(0,0%,100%,.5);
-            padding-bottom: 0.16rem;
-            border-bottom: .05rem solid transparent;
-            .font-size(14px);
-        }
-        &.router-link-active {
-            .tab-link {
-                color: rgb(255, 205, 50);
-                border-color: rgb(255, 205, 50);
-            }
-        }
+  display: flex;
+  height: 1.17rem;
+  line-height: 1.17rem;
+  div {
+    flex: 1 1 auto;
+    text-align: center;
+    .tab-link {
+      color: hsla(0, 0%, 100%, 0.5);
+      padding-bottom: 0.16rem;
+      border-bottom: 0.05rem solid transparent;
+      .font-size(14px);
     }
+    &.router-link-active {
+      .tab-link {
+        color: rgb(255, 205, 50);
+        border-color: rgb(255, 205, 50);
+      }
+    }
+  }
 }
 </style>

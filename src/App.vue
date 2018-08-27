@@ -1,30 +1,30 @@
 <template>
-<div id='app'>
-  <my-header></my-header>
-  <my-tab-nav></my-tab-nav>
-  <keep-alive>
-    <router-view></router-view>
-  </keep-alive>
-</div>
+  <div id='app'>
+    <my-header></my-header>
+    <my-tab-nav></my-tab-nav>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
+  </div>
 </template>
 
 <script>
-import MyHeader from '@/components/my-header/my-header'
-import MyTabNav from '@/components/tab-nav/tab-nav'
+import MyHeader from "@/components/my-header/my-header";
+import MyTabNav from "@/components/tab-nav/tab-nav";
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    'my-header': MyHeader,
-    'my-tab-nav': MyTabNav
+    "my-header": MyHeader,
+    "my-tab-nav": MyTabNav
   }
-}
+};
 </script>
 
 <style lang='less' >
-#app{
+#app {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: rgb(34,34,34);
+  background: rgb(34, 34, 34);
 }
 </style>

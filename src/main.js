@@ -7,14 +7,19 @@ import Axios from "axios"
 import VueLazyload from "vue-lazyload"
 import 'babel-polyfill'
 import 'lib-flexible'
+
+import store from './store/index'
+
 import FastClick from 'fastclick'
 FastClick.attach(document.body)
+
 import '@/common/less/reset.less'
 import '@/common/less/icon.less'
 
 Vue.use(VueLazyload, {
     loading: require('@/common/image/default.png')
 })
+
 Vue.prototype.$ajax = Axios
 Vue.config.productionTip = false
 
@@ -22,6 +27,7 @@ Vue.config.productionTip = false
 new Vue({
     el: '#app',
     router,
+    store,
     template: '<App/>',
     components: {
         App

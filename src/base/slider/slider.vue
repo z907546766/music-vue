@@ -38,6 +38,11 @@ export default {
       currentPageIndex: 0
     };
   },
+  watch: {
+    $route(to, from) {
+      this.autoPlay && this._autoplay();
+    }
+  },
   mounted() {
     this.$nextTick(() => {
       this._setSliderW();
@@ -102,14 +107,14 @@ export default {
     _autoplay() {
       clearTimeout(this.timer);
       this.timer = setTimeout(() => {
-        this.slider.next()
+        this.slider.next();
       }, this.interval);
     },
-    _refresh(){
-       if (this.slider) {
-          this._setSliderW();
-          this.slider.refresh();
-        }
+    _refresh() {
+      if (this.slider) {
+        this._setSliderW();
+        this.slider.refresh();
+      }
     }
   }
 };

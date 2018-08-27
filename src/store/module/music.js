@@ -1,16 +1,23 @@
-const state = {
-    count: 1,
-}
-const getters = {
-    getCout: state => state.count;
-}
-const actions = {
-    add({ commit, state }, a) {
-        commit('isAdd', a);
-    }
-}
-const mutations = {
-    isAdd(state) {
-        count++;
+export default {
+    state: {
+        count: 1,
+    },
+    getters: {
+        getCount: state => state.count
+
+    },
+    actions: {
+        add(context, a) {
+            context.commit('isAdd', a);
+            context.commit('isDis', a);
+        }
+    },
+    mutations: {
+        isAdd(state, a) {
+            state.count++;
+        },
+        isDis(state, a) {
+            state.count -= 2;
+        }
     }
 }

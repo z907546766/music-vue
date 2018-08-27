@@ -1,3 +1,5 @@
+
+<!--歌手排行  -->
 <template lang="html">
   <div id='singer'>
 
@@ -7,7 +9,7 @@
          <div v-for='(item,index) in singers' :key='index' ref='listGroup'>
            <h3>{{item.title}}</h3>
            <ul class="singer-list">
-             <li v-for='val in item.item' :key='val.id' @click='selectItem(val.id)'>
+             <li v-for='val in item.item' :key='val.id' @click='selectItem(val.singermid)'>
                <a href="javascript:;">
                  <img v-lazy="val.avater" alt="" @load='loadImage'>
                  <span>{{val.name}}</span>
@@ -18,17 +20,20 @@
       </div>
     </my-scroll>
 
+    <!-- 右侧导航 -->
      <ul class="singer-nav" @touchstart='tabShortCutStart' @touchmove.stop.prevent='tabShortCutMove'>
         <li v-for='(item,index) in shortCutList' :key='index' :data-index='index' :class="{active:currentIndex===index}">{{item}}</li>
      </ul>
      
-     <!-- 歌手列表的title -->
+     <!-- 歌手列表的滚动时候固定title -->
      <div class="list-fixed" v-show='fixedTitle' ref='fixedList'>
        <h1 class="fixed-title" >{{fixedTitle}}</h1>
      </div>
+
      <div class="loading-box" v-show='!singers.length'>
        <my-loading></my-loading>
      </div>
+
      <router-view></router-view>
   </div>
 </template>
@@ -59,6 +64,7 @@ export default {
     this._checkLoad = false;
     this.listenScroll = true;
     this._getSingerList();
+
   },
   computed: {
     shortCutList() {
@@ -111,9 +117,9 @@ export default {
     }
   },
   methods: {
-    selectItem(id) {
+    selectItem(singermid) {
       this.$router.push({
-        path: `/singer/${id}`
+        path: `/song/${singermid}`
       });
     },
     tabShortCutStart(e) {
@@ -183,7 +189,8 @@ export default {
           name: item.Fsinger_name,
           avater: `https://y.gtimg.cn/music/photo_new/T001R300x300M000${
             item.Fsinger_mid
-          }.jpg?max_age=2592000`
+          }.jpg?max_age=2592000`,
+          singermid:item.Fsinger_mid
         };
         if (index < HOT_NUM) {
           map.hot.item.push(json);

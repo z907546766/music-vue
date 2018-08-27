@@ -30,6 +30,13 @@ export default {
       this._initScroll();
     }, 20);
   },
+  watch: {
+    data() {
+      setTimeout(() => {
+        this.refresh();
+      }, 20);
+    }
+  },
   methods: {
     _initScroll() {
       if (!this.$refs.wrapper) {
@@ -60,13 +67,6 @@ export default {
     },
     refresh() {
       this.scroll && this.scroll.refresh();
-    }
-  },
-  watch: {
-    data() {
-      setTimeout(() => {
-        this.refresh();
-      }, 20);
     }
   }
 };

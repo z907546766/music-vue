@@ -7,23 +7,23 @@
 
 <script>
 export default {
-  props:{
-    str:{
-      type:String,
-      default:"加载中"
+  props: {
+    str: {
+      type: String,
+      default: "加载中"
     }
   }
-}
+};
 </script>
 
 <style lang="less">
-.loading{
+.loading {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   text-align: center;
-  p{
+  p {
     color: #fff;
   }
 }
